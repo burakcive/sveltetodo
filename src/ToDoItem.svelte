@@ -19,9 +19,7 @@
     }
   };
 
-
 </script>
-
 
 <style>
   li {
@@ -34,6 +32,8 @@
     text-decoration: line-through;
   }
 </style>
+
+
 {#if completed}
 <li in:fly="{{ x: -600, duration: 500 }}" class:completed on:click={onComplete}>{title}</li>
 {:else}

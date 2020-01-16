@@ -1,29 +1,38 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from "svelte";
 
-	const dispatch = createEventDispatcher();
-	
-	const onAdd = () => {
-		console.log("onAdd", newTodo);
+  const dispatch = createEventDispatcher();
 
-		dispatch("onaddtodo", newTodo);
+  const onAdd = () => {
+    console.log("onAdd", newTodo);
 
-		newTodo = {
-			title: ""
-		}
-	}
+    dispatch("onaddtodo", newTodo);
 
-	let newTodo = {
-		title:  ""
-	}
+    newTodo = {
+      title: ""
+    };
+  };
 
+  let newTodo = {
+    title: ""
+  };
 </script>
 
+<style>
+ 
+</style>
 
 <div class="input-group mb-3">
-  <input bind:value={newTodo.title} type="text" class="form-control" placeholder="What do you need to accomplish?" aria-label="What do you need to accomplish?" 
-  aria-describedby="button-addon2">
+  <input
+    bind:value={newTodo.title}
+    type="text"
+    class="form-control"
+    placeholder="What do you need to accomplish?"
+    aria-label="What do you need to accomplish?"
+    aria-describedby="button-addon2" />
   <div class="input-group-append">
-    <button on:click={onAdd} class="btn btn-secondary" type="button">Add Note</button>
+    <button on:click={onAdd} class="btn btn-secondary" type="button">
+      Add Note
+    </button>
   </div>
 </div>
