@@ -9,7 +9,7 @@
 
   onMount(async () => {
     const res = await fetch(
-      `https://jsonplaceholder.typicode.com/todos?userId=1`
+      `https://my-json-server.typicode.com/burakcive/sveltetodo/posts`
     );
     todos = await res.json();
   });
@@ -58,6 +58,7 @@
   {:else}
     <div class="row">
       <div class="col">
+      <h4>Items to do...</h4>
         <ul>
           {#each todos.filter(t => !t.completed) as todo}
             <ToDoItem  on:onremove={removeTodo} on:oncomplete={completeTodo} {...todo} />
@@ -65,6 +66,7 @@
         </ul>
       </div>
       <div class="col">
+      <h4>Completed Items</h4>
         <ul>
           {#each todos.filter(t => t.completed) as todo}
             <ToDoItem on:onremove={removeTodo} on:oncomplete={completeTodo} {...todo} />
